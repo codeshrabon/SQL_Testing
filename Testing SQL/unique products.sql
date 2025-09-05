@@ -20,4 +20,20 @@ values(100, "hamburger", 3.99),
 insert into products
 values(100, "hamburger", 3.99);
 
+
+-- use of not null constraint 
+create table products(
+product_id int,
+product_name varchar(25),
+product_price decimal(4,2) NOT NULL
+);
+
+-- after creating a table if we want to add not null constraint to column 
+alter table products
+modify product_price decimal (4,2) not null;
+
+-- inserting data into table 
+insert into products
+values(105, "bird fry", null);
+
 select * from products;
