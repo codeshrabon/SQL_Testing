@@ -77,5 +77,47 @@ values (6, "plangton", "Ahmed", 10.00, "2025-04-02");
 alter table check_employees
 drop check chk_hourly_pay;
 
+-- use default constraint 
+create table products(
+product_id int,
+product_name varchar(25),
+product_price decimal(4,2) default 0.00
+);
+
+-- in existing table if we want to add default constaint 
+alter table products
+alter product_price set default 0.00;
+
+-- after set default to column 
+insert into products(product_id, product_name)
+values (104, "straw"),
+		(105, "napkin"),
+		(106, "fork"),
+        (107, "spoon");
+-- if we do not add default constraint we have to add them manually 
+insert into products
+values (104, "straw", 0.00),
+		(105, "napkin", 0.00),
+		(106, "fork", 0.00),
+        (107, "spoon", 0.00);
+
+
+-- create a table of transactions using default for date 
+create table transactions (
+	transactions_id int ,
+    transactions_amount decimal(4,2),
+    transactions_date datetime default now()
+);
+
+-- insertinf values into transactions
+insert into transactions(transactions_id, transactions_amount )
+values (100, 2.00),
+		(101, 5.00),
+        (102, 4.90),
+        (103, 2.99);
+
+delete from products
+where product_id >= 104;
 select * from check_employees;
 select * from products;
+select * from transactions;
