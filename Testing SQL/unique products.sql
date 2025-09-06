@@ -115,6 +115,9 @@ values (100, 2.00),
 		(101, 5.00),
         (102, 4.90),
         (103, 2.99);
+-- drop the transactions table 
+drop table transactions;
+
 
 delete from products
 where product_id >= 104;
